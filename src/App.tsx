@@ -358,6 +358,10 @@ export default function App() {
                     <div className="control-keys"><kbd>E</kbd></div>
                     <span>Explore</span>
                   </div>
+                  <div>
+                    <div className="control-keys"><kbd>Mouse drag</kbd></div>
+                    <span>Change view · scroll to zoom</span>
+                  </div>
                 </div>
                 <button
                   className="title-play"
@@ -503,6 +507,8 @@ export default function App() {
                     <dd>Jump to the next platform</dd>
                     <dt>E</dt>
                     <dd>Explore a nearby display or launch</dd>
+                    <dt>Mouse</dt>
+                    <dd>Hold the left or right mouse button and drag to change your view. Scroll to zoom in or out.</dd>
                   </dl>
                   <p>
                     Fell off? You’ll return to your latest checkpoint. Use

@@ -1,5 +1,6 @@
 import { useEffect, useRef, type RefObject } from "react";
 import * as THREE from "three";
+import { useFrame } from "@react-three/fiber";
 
 /** Manual orbit shares the existing follow camera, rather than competing with it. */
 export function useDragView(
@@ -9,6 +10,11 @@ export function useDragView(
   focus: RefObject<THREE.Vector3>,
 ) {
   const orbit = useRef({ active: false, yaw: 0, pitch: 0.4, radius: 13 });
+  const targetRadius = useRef(13);
+  useFrame((_, dt) => {
+    if (orbit.current.active)
+      orbit.current.radius = THREE.MathUtils.damp(orbit.current.radius, targetRadius.current, 14, Math.min(dt, .1));
+  });
   const enabledRef = useRef(enabled);
   enabledRef.current = enabled;
   const drag = useRef<{
@@ -28,6 +34,7 @@ export function useDragView(
       if (orbit.current.active) return;
       const offset = camera.position.clone().sub(focus.current);
       orbit.current.radius = THREE.MathUtils.clamp(offset.length(), 8, 22);
+      targetRadius.current = orbit.current.radius;
       orbit.current.yaw = Math.atan2(offset.x, offset.z);
       orbit.current.pitch = Math.asin(
         THREE.MathUtils.clamp(
@@ -83,8 +90,11 @@ export function useDragView(
       if (!enabledRef.current) return;
       e.preventDefault();
       initialize();
-      orbit.current.radius = THREE.MathUtils.clamp(
-        orbit.current.radius + e.deltaY * 0.012,
+      const delta = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? canvas.clientHeight : 1);
+      // Trackpad pinch gestures arrive as small wheel deltas with Ctrl set.
+      const sensitivity = e.ctrlKey ? 0.08 : 0.016;
+      targetRadius.current = THREE.MathUtils.clamp(
+        targetRadius.current + THREE.MathUtils.clamp(delta, -200, 200) * sensitivity,
         8,
         22,
       );

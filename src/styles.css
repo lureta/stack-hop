@@ -1194,15 +1194,17 @@ code {
   display: flex;
   align-items: center;
   gap: 6px;
-  width: 170px;
+  width: 198px;
   flex: none;
 }
 .title-instructions kbd {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 72px;
-  min-height: 28px;
+  width: 96px;
+  height: 32px;
+  box-sizing: border-box;
+  white-space: nowrap;
   padding: 5px 9px;
   margin: 0;
   font-size: 11px;
