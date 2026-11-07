@@ -225,6 +225,7 @@ export default function App() {
             Home
           </button>
           <button onClick={() => nav("about")}>About</button>
+          <button onClick={() => nav("skills")}>Skills</button>
           <button onClick={() => nav("experience")}>Experience</button>
           <button onClick={() => nav("projects")}>Projects</button>
           <button onClick={() => setMenu("resume")}>Resume ↗</button>

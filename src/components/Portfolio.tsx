@@ -96,6 +96,19 @@ export function Portfolio() {
       <section id="about">
         <AboutDetails />
       </section>
+      <section id="skills" aria-labelledby="skills-heading">
+        <span className="eyebrow">MY TECH TOOLKIT</span>
+        <h2 id="skills-heading">Skills</h2>
+        <p>The technologies I use to bring ideas to life across my projects, internships, and research.</p>
+        {p.skills.map((group) => (
+          <div key={group.category}>
+            <h3>{group.category}</h3>
+            <div className="tags">
+              {group.technologies.map((skill) => <span key={skill}>{skill}</span>)}
+            </div>
+          </div>
+        ))}
+      </section>
       <section id="experience">
         <span className="eyebrow">WHERE I’VE BEEN</span>
         <h2>Good teams. Meaningful work.</h2>

@@ -14,6 +14,13 @@ export const portfolio = {
     "Human-centered design",
   ],
   email: "lureta222@gmail.com",
+  skills: [
+    { category: "Languages", technologies: ["Python", "TypeScript", "JavaScript", "Java", "C++"] },
+    { category: "Frontend & interactive experiences", technologies: ["React", "React Native", "Three.js", "React Three Fiber", "HTML", "CSS"] },
+    { category: "Backend & data", technologies: ["FastAPI", "Node.js", "PostgreSQL", "Supabase", "Oracle Autonomous Database", "WebSockets"] },
+    { category: "Cloud & tools", technologies: ["AWS Amplify Hosting", "Amazon Cognito", "Amazon API Gateway", "Docker", "Git", "Linux", "Figma"] },
+    { category: "AI & robotics", technologies: ["OpenCV", "Gemini API", "RAG", "micro:bit", "VEX Robotics"] },
+  ],
   githubUrl: "https://github.com/lureta",
   sourceUrl: "https://github.com/lureta/stack-hop",
   linkedinUrl: "https://www.linkedin.com/in/lilyureta/",
