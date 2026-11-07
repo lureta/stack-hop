@@ -138,11 +138,17 @@ export function StackScenes({ stage }: { stage: number }) {
       </group>)}
       <DataBelt position={[-8, 3, -31]} stage={1} />
       <DataBelt position={[8, 11, -77]} stage={1} />
-      <group position={[-10, 8, -55]} rotation={[0, .35, 0]}>
+      <group position={[-16, 8, -55]} rotation={[0, .35, 0]}>
         <Block size={[7, 2.5, 5]} color={blue} />
-        {[-1, 0, 1].map((i) => <group key={i} position={[i * 2, 1.25, 0]}>
-          <Cylinder position={[0, 1.5, 0]} radius={.13} height={3} color={navy} />
-          <Orb position={[0, 3, 0]} scale={[.22, .22, .22]} color={mint} />
+        <Block position={[0, 1.6, 1.2]} size={[2.2, .7, 1]} color={navy} />
+        <Label position={[0, 1.97, 1.2]} rotation={[-Math.PI / 2, 0, 0]} size={.26} color={cream}>API</Label>
+        <Block position={[0, 1.29, .25]} size={[.1, .06, .9]} color={mint} />
+        <Block position={[0, 1.29, -.15]} size={[4.5, .06, .1]} color={mint} />
+        {[-1, 0, 1].map((i) => <group key={i} position={[i * 2.2, 0, -1.3]}>
+          <Block position={[0, 1.29, .7]} size={[.1, .06, .9]} color={mint} />
+          <Block position={[0, 1.8, 0]} size={[1.5, 1.1, 1.2]} color={navy} />
+          {[0, 1, 2].map((row) => <Block key={row} position={[0, 1.5 + row * .3, .64]} size={[1.15, .12, .06]} color={row === 0 ? mint : ice} radius={.025} />)}
+          <Label position={[0, 2.37, 0]} rotation={[-Math.PI / 2, 0, 0]} size={.18} color={cream}>{["AUTH", "SERVICE", "DATA"][i + 1]}</Label>
         </group>)}
       </group>
     </>}

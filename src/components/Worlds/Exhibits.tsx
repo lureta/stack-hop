@@ -95,7 +95,7 @@ export function Checkpoint({
     <group position={[0, l.y, l.z]}>
       <group ref={pad}>
         <RoundedBox
-          position={[0, -0.11, 0]}
+          position={[0, -0.02, 0]}
           args={[3.2, 0.12, 3.2]}
           radius={0.05}
           smoothness={2}
@@ -111,14 +111,14 @@ export function Checkpoint({
         {[-1, 1].flatMap((side) => [
           <Block
             key={`x${side}`}
-            position={[side * 1.4, -0.042, 0]}
+            position={[side * 1.4, 0.06, 0]}
             size={[0.055, 0.015, 2.85]}
             color="#effff7"
             radius={0.005}
           />,
           <Block
             key={`z${side}`}
-            position={[0, -0.042, side * 1.4]}
+            position={[0, 0.06, side * 1.4]}
             size={[2.85, 0.015, 0.055]}
             color="#effff7"
             radius={0.005}
@@ -127,7 +127,7 @@ export function Checkpoint({
       </group>
       <mesh
         ref={halo}
-        position={[0, -0.025, 0]}
+        position={[0, 0.08, 0]}
         rotation={[-Math.PI / 2, 0, 0]}
         visible={false}
       >
@@ -149,14 +149,13 @@ export function Checkpoint({
         {active ? "CHECKPOINT SAVED" : "TOUCH TO SAVE"}
       </Label>
       <RigidBody type="fixed" colliders={false}>
-        <CuboidCollider args={[1.6, 0.06, 1.6]} position={[0, -0.11, 0]} />
         <CuboidCollider
           args={[1.6, 0.6, 1.6]}
           position={[0, 0.5, 0]}
           sensor
           name="checkpoint"
           onIntersectionEnter={({ other }) => {
-            if (other.rigidBodyObject?.name === "player") {
+            if (other.rigidBodyObject?.name === "player" && !active) {
               gl.domElement.dataset.checkpoint = String(index);
               gl.domElement.dataset.checkpointGlow = String(index);
               pulse.current = 1;

@@ -36,7 +36,7 @@ function JourneyPrompt({ index }: { index: number }) {
         object.children.forEach(visit);
       };
       visit(scene);
-      const position = placeJourneyPrompt(base, side, occupied);
+      const position = placeJourneyPrompt(base, side, occupied, stop.id === "design" ? [2.2, 2.6, 3.2] : undefined, stop.id === "design" ? [2, 4.2] : undefined);
       clear.current = position !== null;
       if (position) root.current.position.copy(position);
     }

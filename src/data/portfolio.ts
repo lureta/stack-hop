@@ -3,10 +3,11 @@ export const portfolio = {
   initials: "LU",
   photo: "/ProfessionalHeadshot.jpg",
   introduction:
-    "I love creating personal projects and making the ideas in my head come to life. Building them gives me room to experiment, learn new skills, and make something that feels like my own.",
+    "I love working on projects and bringing ideas to life, whether it's collaborating with a team or building something on my own. I enjoy working with others to create meaningful solutions and seeing what we can accomplish together. On my own, I love having the freedom to experiment, learn new skills, and explore whatever ideas come to mind. Sometimes that means building something useful and other times it means just making silly games as an outlet for my creativity.",
   funFact: "I want to produce my own music one day!",
   education:
-    "University of Maryland, College Park · B.S. dual degree in Computer Science & Human Development · Minor in Business · May 2027. University Honors and C.D. Mote Jr. IAP Full-Ride Scholarship recipient.",
+    "University of Maryland, College Park · B.S. dual degree in Computer Science & Human Development · Minor in Business · May 2027.",
+  honors: "University Honors and C.D. Mote Jr. IAP Full-Ride Scholarship recipient.",
   interests: [
     "Full-stack engineering",
     "AI & robotics",

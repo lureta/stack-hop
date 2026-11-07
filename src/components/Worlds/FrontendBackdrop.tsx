@@ -159,7 +159,7 @@ export function FrontendBackdrop() {
   return <group ref={root}>
     <BackgroundToy><Keyboard position={[-15, 1, -24]} /></BackgroundToy>
     <BackgroundToy><Files position={[-16, 22, -132]} /></BackgroundToy>
-    <BackgroundToy><group position={[14, 3, -13]} rotation={[0, -.2, 0]}><Search /><group position={[0, -2.5, -.3]}><Toast /></group></group></BackgroundToy>
+    <BackgroundToy><group position={[14, 5, -17]} rotation={[0, -.2, 0]}><Search /><group position={[0, -2.5, -.3]}><Toast /></group></group></BackgroundToy>
     <BackgroundToy><group position={[15, 7, -37]} rotation={[0, -.25, -.05]}><Dropdown /></group></BackgroundToy>
     <BackgroundToy><group position={[-15, 9, -57]} rotation={[0, .25, 0]}><Profile /></group></BackgroundToy>
     <BackgroundToy><group position={[15, 14, -75]} rotation={[0, -.2, .04]}><Sliders /><group position={[0, -3.6, -.2]}><Toast success={false} /></group></group></BackgroundToy>

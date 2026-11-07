@@ -121,11 +121,6 @@ export function BackendFactory({ paused }: { paused: boolean }) {
     {[0, 1, 2].map((i) => <Switch key={i} index={i} />)}
     {[1, 2, 3, 7].map((index, i) => { const p = backendPoint(index); return <Label key={index} position={[p.x, p.y + .09, p.z + 1.1]} rotation={[-Math.PI / 2, 0, 0]} size={.32} color={i % 2 ? orange : cyan}>{method[i]}</Label>; })}
     {(() => { const p = backendPoint(8); return <>
-      {[-1, 0, 1].map((lane) => <group key={lane} position={[p.x + lane * 1.6, p.y, p.z]}>
-        <Block position={[0, 2.8, 0]} size={[1.45, .3, .2]} color={lane === 0 ? cyan : purple} />
-        <Label position={[0, 2.82, .13]} size={.14} color={dark}>{lane === 0 ? "/api/study" : lane < 0 ? "/missing" : "/unknown"}</Label>
-        <Block position={[-.7, 1.35, 0]} size={[.1, 2.7, .15]} color={purple} />
-      </group>)}
       <group ref={screens} position={[p.x, p.y + 3.6, p.z]}>
         <Label color={orange} size={.3}>404 Not Found · try /api/study</Label>
         <Label color={cyan} size={.3}>200 OK · endpoint found</Label>

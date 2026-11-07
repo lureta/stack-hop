@@ -69,12 +69,13 @@ export function AboutDetails() {
       <div className="avatar">
         {p.photo ? <img src={p.photo} alt={p.name} /> : p.initials}
       </div>
-      <span className="eyebrow">A LITTLE ABOUT ME</span>
+      <span className="eyebrow">ABOUT ME</span>
       <h2>Hi, I’m {p.name}.</h2>
       <p>{p.introduction}</p>
       <p><strong>Fun fact:</strong> {p.funFact}</p>
       <h3>Education</h3>
       <p>{p.education}</p>
+      <p>Honors: {p.honors}</p>
       <div className="tags">
         {p.interests.map((x) => (
           <span key={x}>{x}</span>
@@ -93,7 +94,6 @@ export function Portfolio() {
   return (
     <main className="portfolio">
       <section id="about">
-        <span className="eyebrow">THE PERSON BEHIND THE PIXELS</span>
         <AboutDetails />
       </section>
       <section id="experience">

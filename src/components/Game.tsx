@@ -41,6 +41,10 @@ function Player(p: GameProps) {
     falling: false,
   });
   const jumpHeld = useRef(false);
+  // Checkpoint saves change the respawn stage, not the player's current position.
+  const initialPosition = useRef<[number, number, number]>([
+    0, levels[p.stage].y + 0.85, levels[p.stage].z,
+  ]);
   const lastSupported = useRef(-Infinity);
   const groundCarry = useRef<{
     handle: number;
@@ -553,7 +557,7 @@ function Player(p: GameProps) {
         name="player"
         colliders={false}
         enabledRotations={[false, false, false]}
-        position={[0, levels[p.stage].y + 0.85, levels[p.stage].z]}
+        position={initialPosition.current}
         linearDamping={0.3}
         onIntersectionEnter={({ other }) => {
           if (
